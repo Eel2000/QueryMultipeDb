@@ -1,5 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTest
 {
@@ -9,6 +9,8 @@ namespace UnitTest
         [TestMethod]
         public void TestMethod1()
         {
+            var v = new { };
+            var context = AvailableContex
         }
     }
 }

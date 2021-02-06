@@ -40,18 +40,17 @@ namespace MultiDbQuery
             }
             return _dbContexts;
         }
-        public static async Task<IEnumerable<TObject>> GetAll<TObject>(TObject @object, TObject entity) where TObject : class
+        public static async Task<IQueryable<TObject>> GetAll<TObject>(TObject @object, TObject entity) where TObject : class
         {
-            var list = new List<TObject>();
+            IQueryable<TObject> queryable = null;
             var contexts = GetContexts(@object);
 
             foreach (var item in contexts)
             {
                 var repo = new Repository<DbContext>(item);
-                var std = await repo.GetAll(entity);
-                list.AddRange(std);
+                queryable = await repo.GetAll(entity);
             }
-            return list;
+            return queryable;
         }
     }
 }
