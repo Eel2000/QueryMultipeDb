@@ -16,13 +16,15 @@ namespace MultiDbQuery.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<TEntity>> GetAll<TEntity>(TEntity entity) where TEntity : class
+        public async Task<IQueryable<TEntity>> GetAll<TEntity>(TEntity entity) where TEntity:class
         {
-            return await _context.Set<TEntity>().ToListAsync();
+            await Task.Delay(4);
+            return _context.Set<TEntity>();
         }
 
         public async Task<TEntity> Find<TEntity>(string id) where TEntity:class
         {
+            await Task.Delay(4);
             return await _context.Set<TEntity>().FindAsync(id);
         }
 
