@@ -1,9 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MultiDbQuery.Errors;
+using MultiDbQuery.Repositories;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace MultiDbQuery
 {
@@ -40,6 +43,23 @@ namespace MultiDbQuery
             }
 
             return _dbContexts;
+        }
+
+        public static async Task<IEnumerable<TObject>> GetAll<TObject>(TObject @object, TObject entity) where TObject : class
+        {
+            var list = new List<TObject>();
+            var contexts = GetContexts(@object);
+
+            foreach (var item in contexts)
+            {
+                var repo = new Repository<DbContext>(item);
+
+                var std = await repo.GetAll(entity);
+
+                list.AddRange(std);
+            }
+
+            return list;
         }
     }
 }
