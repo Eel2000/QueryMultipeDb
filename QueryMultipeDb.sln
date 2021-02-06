@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiDbQuery", "MultiDbQuer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{64286253-5D8D-4F21-83F7-10F659C9293D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTestProjectMutipleDbquery", "NUnitTestProjectMutipleDbquery\NUnitTestProjectMutipleDbquery.csproj", "{1F611E31-1B05-420C-8956-0C343A73422D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{64286253-5D8D-4F21-83F7-10F659C9293D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64286253-5D8D-4F21-83F7-10F659C9293D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64286253-5D8D-4F21-83F7-10F659C9293D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F611E31-1B05-420C-8956-0C343A73422D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F611E31-1B05-420C-8956-0C343A73422D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F611E31-1B05-420C-8956-0C343A73422D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F611E31-1B05-420C-8956-0C343A73422D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

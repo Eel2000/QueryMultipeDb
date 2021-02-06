@@ -45,6 +45,9 @@ namespace MultiDbQuery
             IQueryable<TObject> queryable = null;
             var contexts = GetContexts(@object);
 
+            if (contexts.Count() == 0)
+                return queryable;
+
             foreach (var item in contexts)
             {
                 var repo = new Repository<DbContext>(item);

@@ -10,7 +10,7 @@ namespace UnitTest
         public void TestMethod1()
         {
             var v = new { };
-            var context = AvailableContex
+            var context = AvailableContext
         }
     }
 }
