@@ -15,7 +15,6 @@ namespace MultiDbQuery
         public static int propertiesNumber { get; set; }
         private static PropertyInfo[] propertyInfo { get; set; }
         private static List<DbContext> _dbContexts { get; set; } = new List<DbContext>();
-
         public static IEnumerable<DbContext> GetContexts<TObject>(TObject @object)
         {
             propertyInfo = @object.GetType().GetProperties();
@@ -29,7 +28,6 @@ namespace MultiDbQuery
                 if (item.Name.Contains("Context") || item.Name.Contains("db") ||
                     item.Name.Contains("context"))
                 {
-
                     var context = @object.GetType()
                         .GetProperties()
                         .Where(x => x.Name == item.Name)
@@ -39,12 +37,9 @@ namespace MultiDbQuery
 
                     _dbContexts.Add((DbContext)c);
                 }
-
             }
-
             return _dbContexts;
         }
-
         public static async Task<IEnumerable<TObject>> GetAll<TObject>(TObject @object, TObject entity) where TObject : class
         {
             var list = new List<TObject>();
@@ -53,12 +48,9 @@ namespace MultiDbQuery
             foreach (var item in contexts)
             {
                 var repo = new Repository<DbContext>(item);
-
                 var std = await repo.GetAll(entity);
-
                 list.AddRange(std);
             }
-
             return list;
         }
     }

@@ -21,7 +21,7 @@ namespace MultiDbQuery.Repositories
             return await _context.Set<TEntity>().ToListAsync();
         }
 
-        public async Task<TEntity> Find<TEntity>(string id,TEntity entity) where TEntity:class
+        public async Task<TEntity> Find<TEntity>(string id) where TEntity:class
         {
             return await _context.Set<TEntity>().FindAsync(id);
         }
@@ -29,7 +29,6 @@ namespace MultiDbQuery.Repositories
         public async Task Update<TEntity>(TEntity entity) where TEntity : class
         {
             _context.Attach(entity);
-
             await Task.Delay(TimeSpan.FromMilliseconds(1));
             _context.Entry(entity).State = EntityState.Modified;
         }
@@ -37,9 +36,7 @@ namespace MultiDbQuery.Repositories
         public async Task Delete<TEntity>(TEntity entity) where TEntity : class
         {
             if(_context.Entry(entity).State == EntityState.Detached)
-            {
                 _context.Attach(entity);
-            }
 
             await Task.Delay(TimeSpan.FromMilliseconds(1));
             _context.Remove(entity);
