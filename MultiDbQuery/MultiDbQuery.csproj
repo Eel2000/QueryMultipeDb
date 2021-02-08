@@ -8,7 +8,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageReleaseNotes>supported by .Net Standard 2.1</PackageReleaseNotes>
     <NeutralLanguage>en</NeutralLanguage>
-    <Description>useful package that help your to query one or more database. base on number of your Database Contexts</Description>
+    <Description>useful package that help you to query one or more database. base on number of your Database Contexts</Description>
     <Copyright>Eliezer Bwana</Copyright>
     <PackageProjectUrl>https://github.com/Eel2000/QueryMultipeDb</PackageProjectUrl>
     <Version>1.1.0</Version>
