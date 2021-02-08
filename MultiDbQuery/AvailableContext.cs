@@ -41,7 +41,7 @@ namespace MultiDbQuery
             }
             return _dbContexts;
         }
-        public static async Task<IEnumerable<TEntity>> GetAll<TObject,TEntity>(TObject @object, TEntity entity,Expression<Func<TEntity,bool>> expression) where TObject : class where TEntity:class,new()
+        public static async Task<IEnumerable<TEntity>> Find<TObject,TEntity>(TObject @object, TEntity entity,Expression<Func<TEntity,bool>> expression) where TObject : class where TEntity:class,new()
         {
             var contexts = GetContexts(@object);
             List<TEntity> entities = new List<TEntity>();
