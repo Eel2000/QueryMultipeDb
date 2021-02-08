@@ -10,6 +10,7 @@
     <NeutralLanguage>en</NeutralLanguage>
     <Description>It package allow to get every context available in any class you passed in like params if it does not exist it throw an exception.</Description>
     <Copyright>Eliezer Bwana</Copyright>
+    <PackageProjectUrl>https://github.com/Eel2000/QueryMultipeDb.git</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>

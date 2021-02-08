@@ -25,7 +25,7 @@ namespace NUnitTestProjectMutipleDbquery
         [Test]
         public void Test2()
         {
-            var getall = AvailableContext.GetAll(this, new object()).Result;
+            var getall = AvailableContext.GetAll(this, new object());
 
             if (!object.ReferenceEquals(getall, null))
             {

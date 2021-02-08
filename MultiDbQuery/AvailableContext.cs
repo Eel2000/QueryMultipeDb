@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Threading.Tasks;
 
@@ -40,20 +41,46 @@ namespace MultiDbQuery
             }
             return _dbContexts;
         }
-        public static async Task<IQueryable<TObject>> GetAll<TObject>(TObject @object, TObject entity) where TObject : class
+        public static async Task<IEnumerable<TEntity>> GetAll<TObject,TEntity>(TObject @object, TEntity entity,Expression<Func<TEntity,bool>> expression) where TObject : class where TEntity:class,new()
         {
-            IQueryable<TObject> queryable = null;
             var contexts = GetContexts(@object);
-
-            if (contexts.Count() == 0)
-                return queryable;
+            List<TEntity> entities = new List<TEntity>();
 
             foreach (var item in contexts)
             {
-                var repo = new Repository<DbContext>(item);
-                queryable = await repo.GetAll(entity);
+                var repo = item.Set<TEntity>().Where(expression);
+                entities.AddRange(repo);
             }
-            return queryable;
+            return entities;
+        }
+
+        public static async Task<IEnumerable<TEntity>> GetAll<TObject, TEntity>(TObject @object, TEntity entity) where TObject : class where TEntity : class, new()
+        {
+            var contexts = GetContexts(@object);
+            List<TEntity> entities = new List<TEntity>();
+
+            foreach (var item in contexts)
+            {
+                var repo = item.Set<TEntity>().ToHashSet();
+                entities.AddRange(repo);
+            }
+            return entities;
+        }
+
+        public static async Task<IEnumerable<TEntity>> FirstOrDefaultAsync<TObject,TEntity>(TObject @object,TEntity entity, Expression<Func<TEntity,bool>> expression)
+            where TObject:class where TEntity : class, new()
+        {
+            var contexts = GetContexts(@object);
+
+            List<TEntity> entities = new List<TEntity>();
+
+            foreach (var context in contexts)
+            {
+                var std = await context.Set<TEntity>().Where(expression).FirstOrDefaultAsync(expression);
+                entities.Add(std);
+            }
+
+            return entities;
         }
     }
 }
