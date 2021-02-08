@@ -8,9 +8,10 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageReleaseNotes>supported by .Net Standard 2.1</PackageReleaseNotes>
     <NeutralLanguage>en</NeutralLanguage>
-    <Description>It package allow to get every context available in any class you passed in like params if it does not exist it throw an exception.</Description>
+    <Description>usefull package that help your to query one or multiple database. base on number of your Database Contexts</Description>
     <Copyright>Eliezer Bwana</Copyright>
-    <PackageProjectUrl>https://github.com/Eel2000/QueryMultipeDb.git</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/Eel2000/QueryMultipeDb</PackageProjectUrl>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
