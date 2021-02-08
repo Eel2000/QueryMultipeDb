@@ -43,7 +43,7 @@ namespace MultiDbQuery
         }
         public static async Task<IEnumerable<TEntity>> Find<TObject,TEntity>(TObject @object, TEntity entity,Expression<Func<TEntity,bool>> expression) where TObject : class where TEntity:class,new()
         {
-            var contexts = GetContexts(@object);
+            var contexts = GetContexts(@object).Distinct();
             List<TEntity> entities = new List<TEntity>();
 
             foreach (var item in contexts)
@@ -56,7 +56,7 @@ namespace MultiDbQuery
 
         public static async Task<IEnumerable<TEntity>> GetAll<TObject, TEntity>(TObject @object, TEntity entity) where TObject : class where TEntity : class, new()
         {
-            var contexts = GetContexts(@object);
+            var contexts = GetContexts(@object).Distinct();
             List<TEntity> entities = new List<TEntity>();
 
             foreach (var item in contexts)
@@ -70,7 +70,7 @@ namespace MultiDbQuery
         public static async Task<IEnumerable<TEntity>> FirstOrDefaultAsync<TObject,TEntity>(TObject @object,TEntity entity, Expression<Func<TEntity,bool>> expression)
             where TObject:class where TEntity : class, new()
         {
-            var contexts = GetContexts(@object);
+            var contexts = GetContexts(@object).Distinct();
 
             List<TEntity> entities = new List<TEntity>();
 
