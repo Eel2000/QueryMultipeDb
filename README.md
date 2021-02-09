@@ -61,6 +61,4 @@ the library is in charge of detecting the contexts of the available db and execu
 
 it's extremely simple to use this library, it's based on entity frame work core to make requests.
 
-This library also allows you to reduce the number of times you inject the dependencies of your context(s) into your services, which means that if you have already injected this into one of your services, you just have to pass the instance of this service as a parameter to the method, and the entity from which you wanted to retrieve the data and maybe a predicate, and the magic happens.
 
-e.g:
