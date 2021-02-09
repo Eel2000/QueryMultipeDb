@@ -8,11 +8,12 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageReleaseNotes>supported by .Net Standard 2.1</PackageReleaseNotes>
     <NeutralLanguage>en</NeutralLanguage>
-    <Description>useful package that help you to query one or more database. base on number of your Database Contexts</Description>
+    <Description>A useful package that helps you query one or more databases that have the same structure at the same time, in a single query, based on the number of your database contexts and using EF core.</Description>
     <Copyright>Eliezer Bwana</Copyright>
     <PackageProjectUrl>https://github.com/Eel2000/QueryMultipeDb</PackageProjectUrl>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <Company>Eteyelo services</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
