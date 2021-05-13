@@ -77,7 +77,7 @@ namespace MultiDbQuery
 
             foreach (var context in contexts)
             {
-                var std = await context.Set<TEntity>().Where(expression).FirstOrDefaultAsync(expression);
+                var std = await context.Set<TEntity>().Where(expression).FirstOrDefaultAsync();
                 entities.Add(std);
             }
 
